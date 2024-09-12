@@ -105,9 +105,9 @@ export const TASK_CATEGORIES = {
 
 //----------------------------API Constants-------------------------------//
 
-export const BACKEND_URL = IS_PRODUCTION ? "https://doge-kombat-backend.onrender.com" : "http://localhost:8080";
-export const FRONTEND_URL = IS_PRODUCTION ? 'https://doge-kombat-frontend.onrender.com' : 'http://localhost:5173';
-export const FRONTEND_DOMAIN = IS_PRODUCTION ? 'doge-kombat-frontend.onrender.com' : 'localhost:5173';
+export const BACKEND_URL = IS_PRODUCTION ? "https://monster-kombat-backend.onrender.com" : "http://localhost:8080";
+export const FRONTEND_URL = IS_PRODUCTION ? 'https://monster-kombat-frontend.onrender.com' : 'http://localhost:5173';
+export const FRONTEND_DOMAIN = IS_PRODUCTION ? 'monster-kombat-frontend.onrender.com' : 'localhost:5173';
 export const GIVEAWAY_LINK = 'https://gleam.io/XwuZb/win-100000-join-the-doge-kombat-giveaway-100-winners';
 // export const BACKEND_URL = "http://localhost:8080";
 
