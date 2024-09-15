@@ -1,54 +1,72 @@
-//----------------------------Production Constants-------------------------------//
-export const IS_PRODUCTION = true;
-
-//t.me/hamster_kombat_dev_bot/hamster_local
-
-
 //----------------------------Level Constants-------------------------------//
-export const LEVELS = [1, 2, 3, 4, 5, 6, 7];
-export const TOP_LEVEL = 7;
+export const LEVELS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+export const TOP_LEVEL = 11;
 export const LEVEL_DATA = {
     1: {
-        name: 'Student',
+        name: 'INK Vial',
         point: 0,
         energy: 1000,
-        pointPerClick: 1,
+        pointPerClick: 1
     },
     2: {
-        name: 'Trainee',
-        point: 10000,
+        name: 'Baby',
+        point: 5000,
         energy: 1500,
         pointPerClick: 2
     },
     3: {
-        name: 'Employee',
+        name: 'Toddler',
         point: 25000,
-        energy: 1500,
-        pointPerClick: 2
-    },
-    4: {
-        name: 'Manager',
-        point: 50000,
         energy: 2000,
         pointPerClick: 3
     },
-    5: {
-        name: 'Boss',
-        point: 250000,
+    4: {
+        name: 'Youth',
+        point: 100000,
         energy: 2500,
         pointPerClick: 4
     },
-    6: {
-        name: 'Millionaire',
+    5: {
+        name: 'Teen',
         point: 1000000,
         energy: 3000,
         pointPerClick: 5
     },
+    6: {
+        name: 'Graduate',
+        point: 2000000,
+        energy: 3500,
+        pointPerClick: 6
+    },
     7: {
-        name: 'Billionaire',
+        name: 'Worker',
+        point: 10000000,
+        energy: 4000,
+        pointPerClick: 7
+    },
+    8: {
+        name: 'Employee of the Month',
+        point: 50000000,
+        energy: 4500,
+        pointPerClick: 8
+    },
+    9: {
+        name: 'Supervisor',
+        point: 100000000,
+        energy: 5000,
+        pointPerClick: 9
+    },
+    10: {
+        name: '?',
         point: 1000000000,
-        energy: 3000,
-        pointPerClick: 5
+        energy: 5500,
+        pointPerClick: 10
+    },
+    11: {
+        name: 'Boss',
+        point: 18000000000,
+        energy: 6000,
+        pointPerClick: 11
     },
 }
 
@@ -84,9 +102,8 @@ export const FULL_ENERGY = 6;
 export const MINT_CATEGORIES = {
     PR_TEAM: 'Master Grok',
     MARKETS: 'Frenz',
-    LEGAL: 'NFT Marketplace',
+    LEGAL: 'Marketplace',
     WEB3: 'Crypto Twitter',
-    // SPECIALS: 'Specials',
 };
 
 export const COMBO_SIDE = {
@@ -105,9 +122,9 @@ export const TASK_CATEGORIES = {
 
 //----------------------------API Constants-------------------------------//
 
-export const BACKEND_URL = IS_PRODUCTION ? "https://monster-kombat-backend.onrender.com" : "http://localhost:8080";
-export const FRONTEND_URL = IS_PRODUCTION ? 'https://monster-kombat-frontend.onrender.com' : 'http://localhost:5173';
-export const FRONTEND_DOMAIN = IS_PRODUCTION ? 'monster-kombat-frontend.onrender.com' : 'localhost:5173';
+export const BACKEND_URL = process.env.IS_PRODUCTION ? "https://monster-kombat-backend.onrender.com" : "http://localhost:8080";
+export const FRONTEND_URL = process.env.IS_PRODUCTION ? 'https://monster-kombat-frontend.onrender.com' : 'http://localhost:5173';
+export const FRONTEND_DOMAIN = process.env.IS_PRODUCTION ? 'monster-kombat-frontend.onrender.com' : 'localhost:5173';
 export const GIVEAWAY_LINK = 'https://gleam.io/XwuZb/win-100000-join-the-doge-kombat-giveaway-100-winners';
 // export const BACKEND_URL = "http://localhost:8080";
 
@@ -363,13 +380,6 @@ export const ENERGY_LIMITS = {
         point: 500000,
         increase: 2500
     },
-}
-
-//----------------------------Combo Type Constants-------------------------------//
-
-export const COMBO_TYPES = {
-    SKILL: "Skill",
-    MINE: 'Mine' 
 }
 
 //----------------------------Turbo Constants-------------------------------//

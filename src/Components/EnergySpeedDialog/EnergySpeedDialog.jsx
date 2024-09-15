@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { BACKEND_URL, ENERGY_LIMIT_POINT, TURBO_INTERVAL } from '../../constants';
 import axios from 'axios';
@@ -34,8 +36,8 @@ const EnergySpeedDialog = ({ point, setDialogOpen, setTurbo }) => {
                 <div className="bs-content-image">
                     <img
                         className="is-coin-star"
-                        src="/images/icons/boost-icon.png"
-                        alt="BoostMaxTaps"
+                        src="/images/boost/rocket.png"
+                        alt="Boost"
                     />
                 </div>
                 <div className="bs-content-title">Turbo</div>
@@ -46,6 +48,7 @@ const EnergySpeedDialog = ({ point, setDialogOpen, setTurbo }) => {
                 <button
                     className="bottom-sheet-button button button-primary button-large"
                     onClick={handleTurbo}
+                    disabled
                 >
                     <span>Go ahead</span>
                 </button>

@@ -4374,12 +4374,12 @@ body {
 }
 
 .user-tap-boost img {
-  height: 48px;
-  left: 4px;
+  height: 36px;
+  left: 12px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 48px;
+  width: 36px;
 }
 
 .user-earn {
@@ -4677,8 +4677,8 @@ body {
   font-size: 10px;
   font-weight: 700;
   line-height: 11px;
-  margin-bottom: 6px;
-  margin-top: -6px;
+  margin-bottom: 0px;
+  margin-top: 0px;
   min-height: 22px;
   padding: 0 2px;
 }
@@ -5727,7 +5727,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/images/background-button.png");
+  background-image: url("/images/home/background-button.png");
   background-size: 100%;
   background-position: center;
 }

@@ -76,7 +76,7 @@ function Skin() {
                             <div className="profile-skins-header">
                                 <div className="profile-skins-title">Skin</div>
                                 <div className="profile-skins-tabs">
-                                    <div className="tabs-list" style={{ transform: "translateZ(0px); opacity: 1;" }}>
+                                    <div className="tabs-list" style={{ transform: "translateZ(0px)" }}>
                                         <div className="tabs-item is-active">All</div>
                                     </div>
                                 </div>

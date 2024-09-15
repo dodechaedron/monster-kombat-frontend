@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -21,7 +23,7 @@ const InviteTaskDialog = ({ setDialogOpen, setPoint, setUser }) => {
         }
         finally {
             setDialogOpen('');
-            return false;
+            //
         }
     }
 
@@ -30,24 +32,14 @@ const InviteTaskDialog = ({ setDialogOpen, setPoint, setUser }) => {
             <div className="bs-content">
                 <div className="bs-content-image">
                     <div className="earn-image is-coin-star">
-                        <picture>
-                            <source
-                                srcSet="/images/earn/friends-large.png"
-                                type="image/png"
-                                alt="invite_friends"
-                            />
-                            <img
-                                className="img-responsive"
-                                src="/images/earn/friends-large.png"
-                                alt="invite_friends"
-                            />
-                        </picture>
+                        <img
+                            className="img-responsive"
+                            src="/images/earn/invite-friend.png"
+                            alt="invite_friends"
+                        />
                     </div>
                 </div>
                 <div className="bs-content-title">Invite 3 friends</div>
-                {/**/}
-                {/**/}
-                {/**/}
                 <div className="bs-content-info">
                     <div className="price">
                         <div className="price-image">

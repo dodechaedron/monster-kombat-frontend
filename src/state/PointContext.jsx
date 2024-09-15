@@ -1,14 +1,14 @@
 /* eslint-disable no-unsafe-finally */
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
-import { BACKEND_URL, ENERGY_INTERVAL, ENERGY_SPEED, EXCHANGES, IS_PRODUCTION, LEVEL_DATA } from "../constants";
+import { BACKEND_URL, ENERGY_INTERVAL, ENERGY_SPEED, EXCHANGES, LEVEL_DATA } from "../constants";
 import axios from "axios";
 
 // retrieve data from telegram user
 import { retrieveLaunchParams } from '@telegram-apps/sdk';
 import Loading from "../Pages/Loading";
 
-if (IS_PRODUCTION) {
+if (process.env.IS_PRODUCTION) {
     try {
         const { initDataRaw } = retrieveLaunchParams();
 
@@ -87,7 +87,6 @@ export const PointContextProvider = ({ children }) => {
 
     const [loading, setLoading] = useState(true);
 
-
     useEffect(() => {
         const fetchUserData = async () => {
             try {
@@ -95,7 +94,7 @@ export const PointContextProvider = ({ children }) => {
                 const startParam = getQueryVariable('tgWebAppStartParam');
 
                 const response = await axios.post(`${BACKEND_URL}/api/auth`, {
-                    startParam: IS_PRODUCTION ? startParam : 'kentId7483219571'
+                    startParam: process.env.IS_PRODUCTION ? startParam : 'kentId7483219571'
                 });
                 const { data } = response;
                 setUser(data.user)
@@ -296,7 +295,7 @@ export const PointContextProvider = ({ children }) => {
 
         // updateUserInterval = setInterval(updateUser, UPDATE_USER_INTERVAL)
 
-    }, [level, exchange, profitPerHour, point, fullEnergy, energyLimit, pointPerClick])
+    }, [level, exchange, profitPerHour, point, fullEnergy, energyLimit, pointPerClick, loading, energyLimitLevel, multiTapLevel, user?.tg_id])
 
     useEffect(() => {
         if (user?.tg_id && energy) {
@@ -304,7 +303,7 @@ export const PointContextProvider = ({ children }) => {
             const storeObject = JSON.stringify({ energy, time });
             localStorage.setItem('app@user_energy', storeObject)
         }
-    }, [energy])
+    }, [energy, user?.tg_id])
 
     useEffect(() => {
         const speed = turbo ? ENERGY_SPEED * 10 : ENERGY_SPEED;

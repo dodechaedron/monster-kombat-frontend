@@ -118,7 +118,7 @@ function Skills() {
                                         <div className="upgrade-image">
                                             <picture className="is-rounded">
                                                 <source
-                                                    srcSet={value.img ? value.img : '/images/skills/no-image.png'}
+                                                    srcSet={value.img ? value.img : '/images/harvest/no-image.png'}
                                                     type="image/webp"
                                                     alt="ceo"
                                                 />

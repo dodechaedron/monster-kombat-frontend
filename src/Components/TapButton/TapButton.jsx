@@ -9,6 +9,7 @@ import { PointContext } from '../../state/PointContext'
 import { BACKEND_URL, CIPHER_TABLE, MINUS_CLICK_INTERVAL, SKIN_DATA, SKINS } from '../../constants'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 const numberAnimationDurationMs = 1000
 const numberAnimationDurationSec = numberAnimationDurationMs / 1000
@@ -110,7 +111,11 @@ export const TapButton = ({
 
                 const { data } = response;
 
-                if (data.status === 'ok') {
+                if (data.status === 'duplicated') {
+                    setCurrentCipher(['']);
+                    toast.error('Already done!')
+                    return;                    
+                } else if (data.status === 'ok') {
                     // award the point
                     setPoint(prev => prev + data.point);
                     setCipherMode(false);

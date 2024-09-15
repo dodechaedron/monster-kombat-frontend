@@ -23,6 +23,7 @@
     "@twa-dev/sdk": "^7.0.0",
     "axios": "^1.7.2",
     "classnames": "^2.5.1",
+    "dotenv": "^16.4.5",
     "framer-motion": "^11.3.7",
     "human-readable-numbers": "^0.9.5",
     "moment": "^2.30.1",

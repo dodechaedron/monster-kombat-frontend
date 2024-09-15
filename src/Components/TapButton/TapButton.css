@@ -101,7 +101,7 @@
 }
 
 .is-morse-mode .user-tap-button-inner {
-  background-image: url(/images/background-button.png), linear-gradient(180deg, #982cad, #24286b4f 49.53%, #1a395c88);
+  background-image: url(/images/home/background-button.png), linear-gradient(180deg, #982cad, #24286b4f 49.53%, #1a395c88);
   background-blend-mode: luminosity;
 }
 

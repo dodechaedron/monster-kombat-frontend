@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BACKEND_URL, DAILY_REWARD_LIST } from "../../constants";
@@ -33,18 +35,11 @@ const DailyRewardDialog = ({ setDialogOpen, days, setDays, setPoint, setAvailabl
             <div className="bs-content">
                 <div className="bs-content-image is-boost">
                     <div className="earn-image">
-                        <picture>
-                            <source
-                                srcSet="/images/earn/calendar-large.png"
-                                type="image/png"
-                                alt="streak_days"
-                            />
-                            <img
-                                className="img-responsive"
-                                src="/images/earn/calendar-large.png"
-                                alt="streak_days"
-                            />
-                        </picture>
+                        <img
+                            className="img-responsive"
+                            src="/images/earn/daily-reward.png"
+                            alt="streak_days"
+                        />
                     </div>
                 </div>
                 <div className="bs-content-title">Daily reward</div>

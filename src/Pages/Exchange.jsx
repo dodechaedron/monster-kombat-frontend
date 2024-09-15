@@ -42,7 +42,7 @@ const Exchange = () => {
             <main className="main">
                 <div className="inner settings">
                     <div className="settings-title">Choose exchange</div>
-                    <button className={`settings-item ${exchange == EXCHANGES.SOL_SNIPER ? `is-active` : ``}`} onClick={() => { handleExchangeClick(EXCHANGES.SOL_SNIPER); setDialogOpen(true) }}>
+                    <button className={`settings-item ${exchange.name == EXCHANGES.SOL_SNIPER.name ? `is-active` : ``}`} onClick={() => { handleExchangeClick(EXCHANGES.SOL_SNIPER); setDialogOpen(true) }}>
                         <div className="settings-item-image">
                             <div className="exchange-image is-binance">{getExchangeIcon(EXCHANGES.SOL_SNIPER)}</div>
                         </div>
@@ -50,10 +50,10 @@ const Exchange = () => {
                             <p>Sol Sniper</p>
                         </div>
                         <div className="settings-item-action">
-                            <div className="icon is-24">{getActiveIcon(exchange == EXCHANGES.SOL_SNIPER)}</div>
+                            <div className="icon is-24">{getActiveIcon(exchange.name == EXCHANGES.SOL_SNIPER.name)}</div>
                         </div>
                     </button>
-                    <button className={`settings-item ${exchange == EXCHANGES.MAGIC_EDEN ? `is-active` : ``}`} onClick={() => { handleExchangeClick(EXCHANGES.MAGIC_EDEN); setDialogOpen(true) }}>
+                    <button className={`settings-item ${exchange.name == EXCHANGES.MAGIC_EDEN.name ? `is-active` : ``}`} onClick={() => { handleExchangeClick(EXCHANGES.MAGIC_EDEN); setDialogOpen(true) }}>
                         <div className="settings-item-image">
                             <div className="exchange-image is-mexc">{getExchangeIcon(EXCHANGES.MAGIC_EDEN)}</div>
                         </div>
@@ -61,10 +61,10 @@ const Exchange = () => {
                             <p>Magic Eden</p>
                         </div>
                         <div className="settings-item-action">
-                            <div className="icon is-24">{getActiveIcon(exchange == EXCHANGES.MAGIC_EDEN)}</div>
+                            <div className="icon is-24">{getActiveIcon(exchange.name == EXCHANGES.MAGIC_EDEN.name)}</div>
                         </div>
                     </button>
-                    <button className={`settings-item ${exchange == EXCHANGES.TENSOR ? `is-active` : ``}`} onClick={() => { handleExchangeClick(EXCHANGES.TENSOR); setDialogOpen(true) }}>
+                    <button className={`settings-item ${exchange.name == EXCHANGES.TENSOR.name ? `is-active` : ``}`} onClick={() => { handleExchangeClick(EXCHANGES.TENSOR); setDialogOpen(true) }}>
                         <div className="settings-item-image">
                             <div className="exchange-image is-bitget">{getExchangeIcon(EXCHANGES.TENSOR)}</div>
                         </div>
@@ -72,10 +72,10 @@ const Exchange = () => {
                             <p>Tensor</p>
                         </div>
                         <div className="settings-item-action">
-                            <div className="icon is-24">{getActiveIcon(exchange == EXCHANGES.TENSOR)}</div>
+                            <div className="icon is-24">{getActiveIcon(exchange.name == EXCHANGES.TENSOR.name)}</div>
                         </div>
                     </button>
-                    <button className={`settings-item ${exchange == EXCHANGES.VTOPIA ? `is-active` : ``}`} onClick={() => { handleExchangeClick(EXCHANGES.VTOPIA); setDialogOpen(true) }}>
+                    <button className={`settings-item ${exchange.name == EXCHANGES.VTOPIA.name ? `is-active` : ``}`} onClick={() => { handleExchangeClick(EXCHANGES.VTOPIA); setDialogOpen(true) }}>
                         <div className="settings-item-image">
                             <div className="exchange-image is-bitget">{getExchangeIcon(EXCHANGES.VTOPIA)}</div>
                         </div>
@@ -83,7 +83,7 @@ const Exchange = () => {
                             <p>VTopia</p>
                         </div>
                         <div className="settings-item-action">
-                            <div className="icon is-24">{getActiveIcon(exchange == EXCHANGES.VTOPIA)}</div>
+                            <div className="icon is-24">{getActiveIcon(exchange.name == EXCHANGES.VTOPIA.name)}</div>
                         </div>
                     </button>
                 </div>

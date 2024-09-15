@@ -70,8 +70,6 @@ function HighestDailyEarnings() {
                             <p className='text-sm text-center'>{user.highest_earning}</p>
                         </div>
                         <div className='w-full flex items-center rounded-full border-[#FFD300] border h-5 relative' style={{ boxShadow: 'rgba(250, 184, 34, 0.6) 0px -1px 4px, rgba(250, 184, 34, 0.6) 0px 1px 4px' }}>
-                            {/* <img src="/images/level-progress-outer.png" className='w-full'/> */}
-                            {/* <p className='absolute w-full text-xs text-center text-gray-600 t-0 l-0'>Until Next Level</p> */}
                             <div className={`bg-[#1D1C17] rounded-full h-4`} style={{ width: Math.min(((Math.max(user.point - user.last_point, 0)) * 100 / user.highest_earning), 100).toString() + '%' }} />
                         </div>
                     </div>

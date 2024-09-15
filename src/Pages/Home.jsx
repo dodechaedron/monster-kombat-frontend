@@ -4,12 +4,11 @@ import { UserBalance } from "../Components/UserBalance.jsx/UserBalance";
 import AppBar from "../Components/AppBar";
 import { PointContext } from "../state/PointContext";
 import BoostDialog from "../Components/BoostDialog/BoostDialog";
-import { BACKEND_URL, COMBO_TYPES, LEVEL_DATA, TOP_LEVEL } from "../constants";
+import { LEVEL_DATA, TOP_LEVEL } from "../constants";
 import { getExchangeIcon } from "./Exchange";
 import { Link, useNavigate } from "react-router-dom";
 import InitialDialog from "../Components/InitialDialog/InitialDialog";
 import moment from "moment";
-import axios from "axios";
 
 let comboInterval = 0;
 let cipherInterval = 0;
@@ -82,6 +81,8 @@ function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const levelProgress = user.level !== TOP_LEVEL ? (user.point - LEVEL_DATA[user.level].point) / (LEVEL_DATA[user.level + 1].point - LEVEL_DATA[user.level].point) : (user.point - LEVEL_DATA[user.level].point) / LEVEL_DATA[user.level].point / 100
+
   return (
     <div>
       <div className="page">
@@ -91,8 +92,8 @@ function Home() {
               <div className="user-info is-small" onClick={() => { navigate("/skin"); }}>
                 <div className="user-info-avatar">
                   <picture>
-                    <source srcSet="/images/_skin.png" type="image/webp" />
-                    <img src="/images/_skin.png" />
+                    <source srcSet={`/images/hamsters/${user.level}.png`} type="image/png" />
+                    <img src={`/images/hamsters/${user.level}.png`} />
                   </picture>
                 </div>
                 <div className="user-info-avatar-skin">
@@ -105,7 +106,7 @@ function Home() {
                 <p>{username.toUpperCase()} <span>(CEO)</span></p>
               </div>
             </div>
-            <div className="header-right">
+            {/* <div className="header-right">
               <ul className="header-balances">
                 <li className="header-balances-keys">
                   <div className="icon is-key">
@@ -150,7 +151,7 @@ function Home() {
                   </div>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </header>
           <div className="header-row">
             <div className="header-progress">
@@ -170,12 +171,12 @@ function Home() {
                   <div className="user-level-info-left">
                     <p>
                       {user.level}
-                      <span className="text-grey">&nbsp;/ {5}</span>
+                      <span className="text-grey">&nbsp;/ {TOP_LEVEL}</span>
                     </p>
                   </div>
                 </div>
                 <div className="user-level-progress is-small">
-                  <div className="user-level-progress-bar" style={{ width: `${user.level * 20}%` }}></div>
+                  <div className="user-level-progress-bar" style={{ width: `${(levelProgress > 1 ? 1 : levelProgress) * 100}%` }} />
                 </div>
               </Link>
             </div>
@@ -192,7 +193,7 @@ function Home() {
                     <div className="price-image">
                       <img className="coin img-responsive is-18" src="./images/coin64.png" />
                     </div>
-                    <div className="price-value">+{profitPerHour}</div>
+                    <div className="price-value">+{new Intl.NumberFormat().format(profitPerHour)}</div>
                   </div>
                   <div className="icon icon-info">
                     <svg
@@ -213,7 +214,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <Link to="/settings" className="header-info-settings">
+              <Link to="/boost" className="header-info-settings">
                 <div className="icon">
                   <svg
                     width="26"
@@ -232,7 +233,7 @@ function Home() {
             </div>
           </div>
           <div className="content is-main has-glow">
-            <div className="user-attraction" style={{ transform: "translateZ(0px)", opacity: 1 }}            >
+            <div className="user-attraction" style={{ transform: "translateZ(0px)" }}>
               <div className="user-attraction-item" onClick={() => { navigate("/earn"); }}>
                 <div className="user-attraction-item-inner">
                   <div className={`user-attraction-item-${timeRewardLeft ? "status" : ""}`}></div>
@@ -247,7 +248,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="user-attraction-item is-completed" onClick={() => { setCipherMode(true); }}>
+              <div className="user-attraction-item is-completed" onClick={() => { setCipherMode(!cipherMode); }}>
                 <div className="user-attraction-item-inner">
                   <div className={`user-attraction-item-${timeCipherLeft ? "status" : ""}`}></div>
                   <div className="user-attraction-item-completed">

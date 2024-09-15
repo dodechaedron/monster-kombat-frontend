@@ -7,7 +7,7 @@ import { isTMA } from '@telegram-apps/sdk';
 import WebRoutes from './routes/WebRoutes.jsx';
 import './App.css'
 
-export default () => {
+export default function TelegramApp() {
 
     const [isTGApp, setIsTGApp] = useState(false);
 
@@ -20,9 +20,26 @@ export default () => {
     }, [])
 
     return (
-        isTGApp ? <PointContextProvider>
+        isTGApp ?
+            <PointContextProvider>
+                <div>
+                    <RouterProvider router={appRouter} />
+                    <Toaster
+                        position="top-center"
+                        reverseOrder={false}
+                        toastOptions={{
+                            style: {
+                                borderRadius: '10px',
+                                background: '#333',
+                                color: '#fff'
+                            },
+                        }}
+                    />
+                </div>
+            </PointContextProvider>
+            :
             <div>
-                <RouterProvider router={appRouter} />
+                <RouterProvider router={WebRoutes} />
                 <Toaster
                     position="top-center"
                     reverseOrder={false}
@@ -35,18 +52,5 @@ export default () => {
                     }}
                 />
             </div>
-        </PointContextProvider> : <div>
-            <RouterProvider router={WebRoutes} />
-            <Toaster
-                position="top-center"
-                reverseOrder={false}
-                toastOptions={{
-                    style: {
-                        borderRadius: '10px',
-                        background: '#333',
-                        color: '#fff'
-                    },
-                }}
-            /></div>
     )
 }

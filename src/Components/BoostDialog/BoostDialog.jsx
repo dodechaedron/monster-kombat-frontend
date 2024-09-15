@@ -8,7 +8,7 @@ const BoostDialog = () => {
         <div className="bottom-sheet-scroll">
             <div className="bs-content">
                 <div className="bs-content-image is-boost">
-                    <img src="/images/rocket.png" />
+                    <img src="/images/boost/rocket.png" />
                 </div>
                 <div className="bs-content-title has-top-gap">Boost your profit</div>
                 <div className="bs-content-description">
