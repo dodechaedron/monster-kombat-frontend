@@ -8,7 +8,7 @@ import axios from "axios";
 import { retrieveLaunchParams } from '@telegram-apps/sdk';
 import Loading from "../Pages/Loading";
 
-if (process.env.IS_PRODUCTION) {
+if (process.env.IS_PRODUCTION == "true") {
     try {
         const { initDataRaw } = retrieveLaunchParams();
 
@@ -94,7 +94,7 @@ export const PointContextProvider = ({ children }) => {
                 const startParam = getQueryVariable('tgWebAppStartParam');
 
                 const response = await axios.post(`${BACKEND_URL}/api/auth`, {
-                    startParam: process.env.IS_PRODUCTION ? startParam : 'kentId7483219571'
+                    startParam: process.env.IS_PRODUCTION == "true" ? startParam : 'kentId7483219571'
                 });
                 const { data } = response;
                 setUser(data.user)
